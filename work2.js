@@ -102,7 +102,7 @@ function listDisplay(lang){
     var titleKOR = worksArray[i].title2
     var year = worksArray[i].year
     var append ="#w-"+lang
-    html +=  "<div id='w-"+lang+"-list-"+num+"' class='w-list' onclick='toggle_work("+worksArray[i].index+",&quot;right&quot;)'>"
+    html +=  "<div id='w-"+lang+"-list-"+num+"' class='w-list' onclick='toggle_work("+worksArray[i].index+",&quot;right&quot;)' onmouseover='gridColorAdd("+i+")' onmouseout='gridColorRemove("+i+")'>"
     html += "<div id='arr-"+lang+"-list-title-"+num+"' class='w-list-arrow mobileInvis'></div>"
     html +=    "<div id='w-"+lang+"-list-title-"+num+"' class='w-list-title'>"
     if(lang=="eng"){html+=titleENG}
@@ -135,7 +135,7 @@ function grid(){
   html+="<div id='g-wrapper'>"
    for (var i = 0; i < worksArray.length; i++) {
     html+="<div id='grid-"+i+"' class='g-element' onmouseover='gridColorAdd("+i+")' onmouseout='gridColorRemove("+i+")'>"
-    html+="<span class='helper'></span><div class='gridContainer'><img src='img/"+worksArray[i].directory+"/1."+worksArray[i].format[0]+"' onclick='toggle_work("+i+",&quot;right&quot;)'></div>"
+    html+="<span class='helper'></span><img src='img/"+worksArray[i].directory+"/1."+worksArray[i].format[0]+"' onclick='toggle_work("+i+",&quot;right&quot;)'>"
     html+="</div>"
    }
   html+="</div>"
@@ -155,16 +155,20 @@ function grid(){
 grid();
 
 function gridColorAdd(num){
-  var obj = "#w-eng-list-"+num
-  var obj2 = "#w-kor-list-"+num
-  $(obj).addClass('hovered');
-  $(obj2).addClass('hovered');
+  var obj = "#w-eng-list-"+num;
+  var obj2 = "#w-kor-list-"+num;
+  var obj3 = "#grid-"+num;
+  $(obj).addClass('w-hovered');
+  $(obj2).addClass('w-hovered');
+  $(obj3).addClass('w-hovered');
 }
 function gridColorRemove(num){
   var obj = "#w-eng-list-"+num
   var obj2 = "#w-kor-list-"+num
-  $(obj).removeClass('hovered');
-  $(obj2).removeClass('hovered');
+  var obj3 = "#grid-"+num;
+  $(obj).removeClass('w-hovered');
+  $(obj2).removeClass('w-hovered');
+  $(obj3).removeClass('w-hovered');
 }
 
 //토글 함수//
@@ -207,6 +211,7 @@ function toggle_work(num, direction){
   var html=""
   html+="<div id='w-"+cl+"-wrapper-"+num+"' class='w-wrapper'>"
     html+="<div id='w-"+cl+"-body-"+num+"' class='w-body'>"
+      html+="<div class='work-close-1' onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'><img class='close-svg' src='img/close.svg'></div>"
       html+="<div id='w-"+cl+"-desc1-"+num+"' class='w-desc w-col'>";
       html+="<span data-lang='eng' class='w-title"
       if(cl=="kor"){html+=" invis"}
@@ -262,7 +267,7 @@ function toggle_work(num, direction){
         // html+="</span></div>"
 
         html+="<div id='w-"+cl+"-btn-prev-"+num+"' class='btn-prev'>"
-        html+="<span onclick='       $("+'"#w-'+cl+'-list-'+num+'"'+").prev().prev().trigger("+'&quot;click&quot;'+");'>"
+        html+="<span onclick='$("+'"#w-'+cl+'-list-'+num+'"'+").prev().prev().trigger("+'&quot;click&quot;'+");'>"
         html+="<span data-lang='eng' class='"
         if(cl=="kor"){html+=" invis"}
         html+="'>이전</span>"
@@ -272,15 +277,18 @@ function toggle_work(num, direction){
         html+="</span></div>"
 
         //위 함수를 대체 180910 /toggle_work("+eval(worksArray[num].index*1+1)+",&quot;"+direction+"&quot;); //
-        html+="<div id='w-"+cl+"-btn-close-"+num+"' class='btn-close'><span onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'>"
-        html+="<span data-lang='eng'>CLOSE</span><span data-lang='kor'>닫기</span>"
-        html+="</span></div>"
+        // html+="<div id='w-"+cl+"-btn-close-"+num+"' class='btn-close'><span onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'>"
+        // html+="<span data-lang='eng'>CLOSE</span><span data-lang='kor'>닫기</span>"
+        // html+="</span></div>"
+        html+="<div class='hollow'><span></span></div>"
+
 //'toggle_work("+eval(worksArray[num].index*1-1)+",&quot;"+direction+"&quot;)'
         html+="<div id='w-"+cl+"-btn-prev-"+num+"' class='btn-next'>"
-        html+="<span onclick='       $("+'"#w-'+cl+'-list-'+num+'"'+").next().next().trigger("+'&quot;click&quot;'+");'>"
+        html+="<span onclick='$("+'"#w-'+cl+'-list-'+num+'"'+").next().next().trigger("+'&quot;click&quot;'+");'>"
         // if(direction=="right"){html+="다음"}
         // if(direction=="left"){html+="NEXT"}
         html+="NEXT</span></div>"
+        html+="<div class='work-close-2' onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'><img class='close-svg' src='img/close.svg'></div>"
       html+="</div>"
     html+="</div>"
   html+="</div>"
@@ -305,16 +313,18 @@ setTimeout(function(){
 var btnprev = $(destinationClick).prev().length;
 var btnnext = ""
 if(num==worksArray.length-1){btnnext=0}else{btnnext=1}
+    $(".hollow").html("&nbsp;&nbsp;");
     $(".btn-prev").children().html("<span data-lang='eng'>PREV</span><span data-lang='kor'>이전</span>")
     $(".btn-next").children().html("<span data-lang='eng'>NEXT</span><span data-lang='kor'>다음</span>")
-
   if(btnprev==0){
-    $(".btn-prev").children().html("&nbsp;");
+    $(".hollow").html("");
+    $(".btn-prev").children().html("");
     $(".btn-next").children().html("<span data-lang='eng'>NEXT</span><span data-lang='kor'>다음</span>")
   }
   if(btnnext==0){
+    $(".hollow").html("");
     $(".btn-prev").children().html("<span data-lang='eng'>PREV</span><span data-lang='kor'>이전</span>")
-    $(".btn-next").children().html("&nbsp;");
+    $(".btn-next").children().html("");
   }
 
   if (cl == "eng") {

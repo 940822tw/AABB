@@ -23,12 +23,13 @@
 
     <header>
       <div class="h-home"><a data-lang="eng" href="#" onclick="location.reload();">AABB</a><a data-lang="kor" href="#" onclick="location.reload();" class="invis">에이에이비비</a></div>
-      <div class="h-profile"><a data-lang="eng" onclick="toggle_info()">PROFILE & CONTACT</a><a data-lang="kor" class="invis" onclick="toggle_info()">소개 및 연락처</a></div>
-      <div class="h-lang"><a data-lang="eng" onclick="ls()">한국어</a><a data-lang="kor" onclick="ls()" class="invis">ENGLISH</a></div>
+      <!-- <div class="h-profile"></div> -->
+      <div class="h-lang"><a data-lang="eng" onclick="toggle_info()">INFO</a><a data-lang="kor" class="invis" onclick="toggle_info()">소개</a><a data-lang="eng" onclick="ls()" style="margin-left:10px">한국어</a><a data-lang="kor" onclick="ls()" class="invis"  style="margin-left:20px">ENGLISH</a></div>
     </header>
 
-    <section id="info" onclick="toggle_info()"><!--
-    --><div id="info-1">
+    <section id="info"><!--
+    -->
+      <div id="info-1">
         <div data-lang="eng"></div><!--
      --><div data-lang="kor" class="invis"></div>
       </div><!--
@@ -43,7 +44,8 @@
      --><div id="info-4" class="invis">
         <div data-lang="eng"></div><!--
      --><div data-lang="kor" class="invis"></div>
-      </div><!--
+      </div>
+      <div class="info-close" onclick="toggle_info()"><img class='close-svg' src='img/close.svg'></div><!--
    --></section>
 
     <section id="left">리스트
