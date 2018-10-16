@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AABB</title>
+</head>
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="color.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+<script src="script.js"></script>
+<script src="main.js"></script>
+<script src="info.js"></script>
+<script src="work.js"></script>
+
+<body style="background-color:#ffffff">
+  <div id="wrapper" class="l-wrapper">
+    <div id="left" class="br" data-lang="eng">
+      <div id="l-kor-template" class="l-template invisible mobileInvisible"></div>
+      <!-- <div id="l-eng-mixup" class="l-mixup invisible mobileInvisible"></div> -->
+      <div id="l-eng-header" class="l-header">
+        <div id="h-eng-menu" class="h-menu">
+          <div id="h-eng-btn-home" class="h-logotype "><a href="/AABB2"></a></span>
+          </div>
+
+        </div>
+         <div id="h-eng-btn-lang" class="h-btn deactivated" onclick="toggle_lang()"><span>한국어</span></div>
+      </div>
+      <!--헤더끝/소개뉴스레터시작-->
+      <div id="l-eng-mixup" class="l-mixup">
+      </div>
+      <div id="i-eng" class="l-infomation">
+        <div id="i-eng-btn-close" class="btn-close" onclick="eng_close_info()"><span>CLOSE</span></div>
+        <div id="i-eng-col-1" class="i-col col_left"></div><div id="i-eng-col-2" class="i-col col_right"></div>
+        <!-- <div id="i-kor-btn-close" class="btn-close clear-both" onclick="kor_close_info()"><span>CLOSE</span></div> -->
+        </div>
+      <div id="n-eng" class="l-news">
+        <div id="n-eng-btn-close" class="btn-close clear-both" onclick="eng_close_news()"><span>CLOSE</span></div>
+        <div id="n-eng-col-1" class="n-col col_left">Join Our Newsletter<br><form action="contactENG.php" method="post" novalidate><input type="email" placeholder="Enter your email address" name="email" onfocus="this.value=''"><input type="submit" value="Enter"></form><br></div>
+      </div>
+
+      <!--작업물 리스트-->
+
+      <div id="w-eng" class="l-work">
+      </div>
+      <!--푸터-->
+      <div id="f-eng" class="l-footer">
+      </div>
+      <!--끝-->
+    </div>
+    <!------------------------------------>
+    <div id="right" class="mobileInvisible">
+      <div id="l-eng-template" class="l-template invisible mobileInvisible"></div>
+      <div id="l-kor-header" class="l-header">
+        <div id="h-kor-menu" class="h-menu">
+          <div id="h-kor-btn-info" class="h-btn deactivated" onclick="kor_toggle_info()"><span>소개</span></div>
+        </div>
+        <div id="h-lang" class="h-btn deactivated" onclick="kor_toggle_info()"><span>한국어</span></div>
+      </div>
+          <div id="h-eng-btn-lang" class="h-btn deactivated" onclick="toggle_lang()"><span>ENGLISH</span></div>
+      </div>
+      <!--헤더끝/소개뉴스레터시작-->
+      <div id="i-kor" class="l-infomation">
+        <div id="i-kor-btn-close" class="btn-close" onclick="kor_close_info()"><span>닫기</span></div>
+        <div id="i-kor-col-1" class="i-col col_left"></div><div id="i-kor-col-2" class="i-col col_right"></div>
+        <!-- <div id="i-kor-btn-close" class="btn-close clear-both" onclick="kor_close_info()"><span>닫기</span></div> -->
+      </div>
+      <div id="n-kor" class="l-news">
+        <div id="n-kor-btn-close" class="btn-close clear-both" onclick="kor_close_news()"><span>닫기</span></div>
+        <div id="n-kor-col-1" class="n-col col_left">뉴스레터 구독<br><form action="contactKOR.php" method="post" novalidate><input type="email" placeholder="이메일 주소를 입력하세요" name="email" onfocus="this.value=''"><input type="submit" value="입력"></form><br></div>
+      </div>
+      <!--작업물 리스트-->
+
+      <div id="w-kor" class="l-work">
+      </div>
+      <!--푸터-->
+      <div id="f-kor" class="l-footer">
+      </div>
+      <!--끝-->
+      </div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

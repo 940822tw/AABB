@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AABB</title>
+</head>
+<link rel="stylesheet" href="normalize.css">
+<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="color.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://www.youtube.com/player_api"></script>
+<script src="script2.js"></script>
+<!-- <script src="main.js"></script> -->
+<script src="info2.js"></script>
+<script src="work2.js"></script>
+
+<body style="backgroundColor:#fff">
+
+  <div id="wrapper" class="l-wrapper">
+
+    <header>
+      <div class="h-home"><a data-lang="eng" href="#" onclick="location.reload();">AABB</a><a data-lang="kor" href="#" onclick="location.reload();" class="invis">에이에이비비</a></div>
+      <div class="h-profile"><a data-lang="eng" onclick="toggle_info()">PROFILE & CONTACT</a><a data-lang="kor" class="invis" onclick="toggle_info()">소개 및 연락처</a></div>
+      <div class="h-lang"><a data-lang="eng" onclick="ls()">한국어</a><a data-lang="kor" onclick="ls()" class="invis">ENGLISH</a></div>
+    </header>
+
+    <section id="info" onclick="toggle_info()"><!--
+    --><div id="info-1">
+        <div data-lang="eng"></div><!--
+     --><div data-lang="kor" class="invis"></div>
+      </div><!--
+     --><div id="info-2">
+        <div data-lang="eng"></div><!--
+     --><div data-lang="kor" class="invis"></div>
+      </div>
+      <div id="info-3" class="invis"><!--
+     --><div data-lang="eng"></div><!--
+     --><div data-lang="kor" class="invis"></div>
+      </div><!--
+     --><div id="info-4" class="invis">
+        <div data-lang="eng"></div><!--
+     --><div data-lang="kor" class="invis"></div>
+      </div><!--
+   --></section>
+
+    <section id="left">리스트
+      <div id="w-eng" class="l-work">
+      </div>
+      <div id="w-kor" class="l-work">
+      </div>
+    </section>
+    <section id="right"><div id="l-eng-template" class="l-template invis mobileInv"></div></section>
+
+    <footer>
+      <div data-lang="eng"></div>
+      <div data-lang="kor"></div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
