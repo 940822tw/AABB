@@ -27,7 +27,7 @@ function infoDisplay() {
     $("footer [data-lang='eng']").append(entry[9].content.$t);
     $("footer [data-lang='kor']").append(entry[8].content.$t);
   });
-}
+} 
 
 infoDisplay();
 

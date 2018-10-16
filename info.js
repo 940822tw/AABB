@@ -2,7 +2,7 @@ var i_eng_toggle = false;
 var i_kor_toggle = false;
 var n_eng_toggle = false;
 var n_kor_toggle = false;
-
+ 
 var info = {
   eng_1: '',
   eng_2: '',

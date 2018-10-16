@@ -65,7 +65,7 @@ function shuffle(a) {
     a[j] = x;
   }
 }
-
+ 
 var colorArray = [];
 var stateArray = [];
 var weight;
