@@ -10,7 +10,7 @@ $("#right").animate({
   scrollTop: 0
 }, "fast");
 
-
+ 
 function invisible(){
   for(var i in arguments) {
     $(arguments[i]).addClass('invisible');

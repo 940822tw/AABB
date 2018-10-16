@@ -306,7 +306,7 @@ function toggle_work(num, direction){
       vis("#l-kor-template");}
 mobileToogle(num, direction);
 
- 
+  
 //prev, next 버튼 사라지기
 destinationClick = "#w-"+cl+"-list-"+num;
 setTimeout(function(){

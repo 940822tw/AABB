@@ -55,7 +55,7 @@ function activated() {
 }
 
 
-
+ 
 function shuffle(a) {
   var j, x, i;
   for (i = a.length; i; i -= 1) {
@@ -65,7 +65,7 @@ function shuffle(a) {
     a[j] = x;
   }
 }
- 
+
 var colorArray = [];
 var stateArray = [];
 var weight;

@@ -8,7 +8,7 @@ var info = {
   footer_1: '',
   footer_2: ''
 }
-
+ 
 var spreadOfInfo = "https://spreadsheets.google.com/feeds/cells/10YCAxKOlsjNtjBIt78-JtNzSSvYuqe8EHrBnnkdTLSg/2/public/basic?alt=json-in-script&callback=?";
 
 function infoDisplay() {
@@ -27,7 +27,7 @@ function infoDisplay() {
     $("footer [data-lang='eng']").append(entry[9].content.$t);
     $("footer [data-lang='kor']").append(entry[8].content.$t);
   });
-} 
+}
 
 infoDisplay();
 
