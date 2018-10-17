@@ -1,7 +1,7 @@
 var transitionBackground = []
 var transitionOrder = 0;
 var spreadOfTrans = "https://spreadsheets.google.com/feeds/cells/10YCAxKOlsjNtjBIt78-JtNzSSvYuqe8EHrBnnkdTLSg/6/public/basic?alt=json-in-script&callback=?";
-var transitionTime;
+var transitionTime = 100000;
 var transitionLength = 3000;
 
 function transtionArray() {
@@ -18,9 +18,8 @@ function transtionArray() {
 function checkNumber(a){if(a==transitionLength){a=0;}else{transitionOrder++}}
 
 function transitionMotion(){
-    $("html body").animate({backgroundColor: transitionBackground[transitionOrder]}, 'slow');
+    // $("html body").animate({backgroundColor: transitionBackground[transitionOrder]}, 'slow');
     checkNumber(transitionOrder);
-    console.log(transitionTime);
 }
 
 transtionArray();

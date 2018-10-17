@@ -211,7 +211,7 @@ function toggle_work(num, direction){
   var html=""
   html+="<div id='w-"+cl+"-wrapper-"+num+"' class='w-wrapper'>"
     html+="<div id='w-"+cl+"-body-"+num+"' class='w-body'>"
-      html+="<div class='work-close-1' onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'><img class='close-svg' src='img/close.svg'></div>"
+      html+="<div class='work-close-1' onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'></div>"
       html+="<div id='w-"+cl+"-desc1-"+num+"' class='w-desc w-col'>";
       html+="<span data-lang='eng' class='w-title"
       if(cl=="kor"){html+=" invis"}
@@ -288,17 +288,23 @@ function toggle_work(num, direction){
         // if(direction=="right"){html+="다음"}
         // if(direction=="left"){html+="NEXT"}
         html+="NEXT</span></div>"
-        html+="<div class='work-close-2' onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'><img class='close-svg' src='img/close.svg'></div>"
+        html+="<div class='work-close-2' onclick='toggle_work("+num+",&quot;"+direction+"&quot;)'></div>"
       html+="</div>"
     html+="</div>"
   html+="</div>"
 
 
-
+  $(".work-close-1").empty();
+  $(".work-close-2").empty();
+  
       if(direction=="right"){
       $("#l-eng-template").append(html);
       middleToRight('.w-wrapper');
-      vis("#l-eng-template");}
+      vis("#l-eng-template");
+
+
+      drawClosebtn(".work-close-1");
+      drawClosebtn(".work-close-2");}
 
       if(direction=="left"){
       $("#l-kor-template").append(html);
@@ -306,7 +312,7 @@ function toggle_work(num, direction){
       vis("#l-kor-template");}
 mobileToogle(num, direction);
 
-  
+
 //prev, next 버튼 사라지기
 destinationClick = "#w-"+cl+"-list-"+num;
 setTimeout(function(){
@@ -458,8 +464,6 @@ if(direction=="left"){
 
 
 }
-
-
 
 function videoReset(){
   setTimeout(function(){for(var i=0; i<$("iframe").length; i++){$("iframe")[i].src = "";}},200);

@@ -8,7 +8,7 @@ var info = {
   footer_1: '',
   footer_2: ''
 }
- 
+
 var spreadOfInfo = "https://spreadsheets.google.com/feeds/cells/10YCAxKOlsjNtjBIt78-JtNzSSvYuqe8EHrBnnkdTLSg/2/public/basic?alt=json-in-script&callback=?";
 
 function infoDisplay() {
@@ -60,7 +60,7 @@ function close_info() {
 
 function dropdown(id, time) {
   var curHeight = $(id).height(),
-    autoHeight = $(id).css('height', 'auto').height() + 35;
+    autoHeight = $(id).css('height', 'auto').height() + 49;
   $(id).height(curHeight);
   $(id).animate({
     paddingTop: "5px",

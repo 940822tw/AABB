@@ -24,7 +24,7 @@
     <header>
       <div class="h-home"><a data-lang="eng" href="#" onclick="location.reload();">AABB</a><a data-lang="kor" href="#" onclick="location.reload();" class="invis">에이에이비비</a></div>
       <!-- <div class="h-profile"></div> -->
-      <div class="h-lang"><a data-lang="eng" onclick="toggle_info()">INFO</a><a data-lang="kor" class="invis" onclick="toggle_info()">소개</a><a data-lang="eng" onclick="ls()" style="margin-left:10px">한국어</a><a data-lang="kor" onclick="ls()" class="invis"  style="margin-left:20px">ENGLISH</a></div>
+      <div class="h-lang"><a data-lang="eng" onclick="toggle_info()">INFO</a><a data-lang="kor" class="invis" onclick="toggle_info()">소개</a><a data-lang="eng" onclick="ls()" style="margin-left:14px">EN/KR</a><a data-lang="kor" onclick="ls()" class="invis"  style="margin-left:14px">한/영</a></div>
     </header>
 
     <section id="info"><!--
@@ -45,10 +45,12 @@
         <div data-lang="eng"></div><!--
      --><div data-lang="kor" class="invis"></div>
       </div>
-      <div class="info-close" onclick="toggle_info()"><img class='close-svg' src='img/close.svg'></div><!--
+      <div class="info-close" onclick="toggle_info()">
+        <!-- <img class='close-svg' src='img/close.svg'> -->
+      </div><!--
    --></section>
 
-    <section id="left">리스트
+    <section id="left">
       <div id="w-eng" class="l-work">
       </div>
       <div id="w-kor" class="l-work">

@@ -10,7 +10,6 @@ $("#right").animate({
   scrollTop: 0
 }, "fast");
 
-
 function ls() {
   if (cl == "eng") {
     $('[data-lang="eng"]').addClass('invis');
@@ -55,7 +54,7 @@ function activated() {
 }
 
 
- 
+
 function shuffle(a) {
   var j, x, i;
   for (i = a.length; i; i -= 1) {
@@ -121,7 +120,7 @@ $.getJSON(spreadOfColor, function(data) {
   weight = SettingEntry[20].content.$t;
   wrapper.style.setProperty("--weight", weight);
 
-
+drawClosebtn(".info-close");
 })
 
 
@@ -131,12 +130,11 @@ $.getJSON(spreadOfColor, function(data) {
 var transitionBackground = []
 var transitionOrder = 1;
 var spreadOfTrans = "https://spreadsheets.google.com/feeds/cells/10YCAxKOlsjNtjBIt78-JtNzSSvYuqe8EHrBnnkdTLSg/6/public/basic?alt=json-in-script&callback=?";
-var transitionTime = 5000;
+var transitionTime = 50000;
 var transitionLength;
 
 
 function transtionArray() {
-
 
   $.getJSON(spreadOfTrans, function(data) {
     var entry = data.feed.entry;
@@ -149,6 +147,14 @@ function transtionArray() {
     $("html body").css({
       "opacity": 1
     })
+
+  //
+  //   $("#wrapper").css({'transition' : 'background-color 10s',
+  //   'transition' : 'background-color 10s',
+  //   'transition'    : 'background-color 10s',
+  //   'transition'     : 'background-color 10s',
+  // // 'transition'        : 'background-color 10s'});
+
     wrapper.style.setProperty("--level-1", transitionBackground[transitionOrder]);
     setInterval(transitionMotion, transitionTime);
   })
@@ -165,15 +171,37 @@ function checkNumber() {
 }
 
 function transitionMotion() {
-  // $("#left").css({"transition":"background-color 1s"});
-  // $("#right").css({"transition":"background-color 1s"});
-  // $(".w-wrapper").css({"transition":"background-color 1s"});
-  // $(".l-infomation").css({"transition":"background-color 1s"});
-  // $(".l-news").css({"transition":"background-color 1s"});
-  // $(".w-list-wrapper").css({"transition":"background-color 1s"});
-  // $(".l-header").css({"transition":"background-color 1s"});
-  // $(".n-col input").css({"transition":"color 1s"});
+  $("#info").css({"transition":"background-color 10s"});
+  $("#wrapper").css({"transition":"background-color 10s"});
+  $("#left").css({"transition":"background-color 10s"});
+  $("#right").css({"transition":"background-color 10s"});
+  $("header").css({"transition":"background-color 10s"});
+  $(".w-wrapper").css({"transition":"background-color 10s"});
+  $(".l-infomation").css({"transition":"background-color 10s"});
+  $(".l-news").css({"transition":"background-color 10s"});
+  $(".w-list-wrapper").css({"transition":"background-color 10s"});
+  $(".l-header").css({"transition":"background-color 10s"});
+  $(".n-col input").css({"transition":"color 1s"});
+  // $("html body").animate({backgroundColor: transitionBackground[transitionOrder]}, 100, 'linear');
   checkNumber();
   wrapper.style.setProperty("--level-1", transitionBackground[transitionOrder]);
 
 }
+
+function drawClosebtn(obj) {
+  var btn=''
+      btn+= '<div class="btn-wrapper">'
+      btn+= '<svg class="close-svg close-svg-lv-3" height="36" xmlns="http://www.w3.org/2000/svg">'
+      btn+= '<line x1="0" y1="0" x2="36" y2="36" style="stroke:'+colorArray[3]+';stroke-width:1.1"/>'
+      btn+= '<line x1="36" y1="0" x2="0" y2="36" style="stroke:'+colorArray[3]+';stroke-width:1.1"/>'
+      btn+= '</svg></div>'
+  var btn_hover=''
+      btn_hover+= '<div class="btn-hover-wrapper">'
+      btn_hover+= '<svg class="close-svg close-svg-lv-2" height="36" xmlns="http://www.w3.org/2000/svg">'
+      btn_hover+= '<line x1="0" y1="0" x2="36" y2="36" style="stroke:'+colorArray[2]+';stroke-width:1.1"/>'
+      btn_hover+= '<line x1="36" y1="0" x2="0" y2="36" style="stroke:'+colorArray[2]+';stroke-width:1.1"/>'
+      btn_hover+= '</svg></div>'
+      $(obj).append(btn_hover);
+$(obj).append(btn);
+      console.log(btn)
+      }
