@@ -105,8 +105,8 @@ $.getJSON(spreadOfColor, function(data) {
     wrapper.style.setProperty("--level-2", colorArray[2]);
     wrapper.style.setProperty("--level-1", colorArray[1]);
   } else if (colorArray[0] == "RANDOM") {
-    colorArray[3] = "#000";
-    colorArray[2] = "#CCC";
+    colorArray[3] = SettingEntry[8].content.$t;
+    colorArray[2] = SettingEntry[12].content.$t;
     // colorArray[1]="transparent";
     wrapper.style.setProperty("--level-3", colorArray[3]);
     wrapper.style.setProperty("--level-2", colorArray[2]);

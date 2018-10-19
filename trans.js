@@ -18,8 +18,15 @@ function transtionArray() {
 function checkNumber(a){if(a==transitionLength){a=0;}else{transitionOrder++}}
 
 function transitionMotion(){
-    // $("html body").animate({backgroundColor: transitionBackground[transitionOrder]}, 'slow');
+
+    $("html body").animate({backgroundColor: transitionBackground[transitionOrder]}, 'slow');
+    $("html body").css({transition : 'background-color 10s',
+    WebkitTransition : 'background-color 10s',
+    MozTransition    : 'background-color 10s',
+    MsTransition     : 'background-color 10s',
+    OTransition      : 'background-color 10s'});
     checkNumber(transitionOrder);
+    console.log(transitionTime);
 }
 
 transtionArray();
