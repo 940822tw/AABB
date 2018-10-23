@@ -69,7 +69,7 @@ input:focus {
 #wrapper{background-color: var(--level-1); transition: background-color 10s;}
 
 /*헤더*/
-header {width: 100%; background-color: var(--level-1); height: 50px; border-bottom: 1px solid var(--level-3); padding-top: 24px; padding-left: 10px; padding-right: 10px; box-sizing: border-box; position: fixed; z-index: 20}
+header {width: 100%; background-color: var(--level-1); height: 50px; border-bottom: 1px solid var(--level-3); padding-top: 24px; padding-left: 10px; padding-right: 10px; box-sizing: border-box; position: fixed; z-index: 10000}
 header .h-lang{float:right;}
 header .h-home{float: left;}
 header .h-profile{float: left; margin-left: calc(50vw + 1px);}
@@ -80,7 +80,7 @@ header a:hover{color: var(--level-2); transition: .5s; cursor: pointer;}
 footer {width: 100%; background-color: var(--level-1); height: 50px; border-top: 1px solid var(--level-3); padding-top: 24px; padding-left: 10px; padding-right: 10px; box-sizing: border-box; display: inline-block; color: var(--level-3); display: none}
 
 /*인포*/
-#info {background-color: var(--level-1); vertical-align: top; padding-left: 10px; padding-right: 10px; color: var(--level-3); border-bottom: 1px solid var(--level-3); padding-top: 0px; overflow-y: hidden; height: 0px; position: relative; background-color: var(--level-1); position: fixed; top: 49px; z-index:30;}
+#info {background-color: var(--level-1); vertical-align: top; padding-left: 10px; padding-right: 10px; color: var(--level-3); border-bottom: 1px solid var(--level-3); padding-top: 0px; overflow-y: hidden; height: 0px; position: relative; background-color: var(--level-1); position: fixed; top: 49px; z-index:10000;}
 #info-1, #info-2, #info-3, #info-4{width: calC(50vw - 20px); display: inline-block; white-space: pre-line;  vertical-align: top; padding-top: 3px; padding-bottom: 10px; margin-bottom: 25px;}
 #info-1{margin-right: 10px; margin-top: 15px}
 #info-2{margin-left: 10px;  margin-top: 15px}
@@ -91,12 +91,15 @@ footer {width: 100%; background-color: var(--level-1); height: 50px; border-top:
 .info-close .btn-wrapper, .info-close .btn-hover-wrapper{
 position: relative; left: calc(100vw - 56px);
 }
-/*좌우 컨테이너*/
-#left{width: calc(50vw - 0px); overflow-y: visible; float: left; background-color: var(--level-1); }
-#right{width: 50%; float:right; overflow-y: visible; background-color: var(--level-1); position: relative; right: 0}
-#wrapper{font-weight: var(--weight);}
-.w-wrapper{background-color: var(--level-1);}
 
+/*좌우 컨테이너*/
+#left{width: calc(50vw - 0px); overflow-y: visible; float: left; background-color: var(--level-1); z-index: 9999; position: absolute;}
+#right{width: 50%; float:right; overflow-y: visible; background-color: var(--level-1); position: relative; right: 0;}
+#wrapper{font-weight: var(--weight);}
+.w-wrapper{position: fixed;}
+.bg-wrapper{width: 0px; overflow: visible; height: 0;}
+.bg{width: calc(50vw - 0px); overflow-y: visible; background-color: var(--level-1); position: fixed; height: 100vh; left: 0; display: inline-block;}
+.bgw{position: fixed;}
 /* 그리드*/
 #g-wrapper {padding-top: 49px;}
 .g-element::before, #g-wrapper .g-element {vertical-align: middle;}
@@ -111,6 +114,7 @@ position: relative; left: calc(100vw - 56px);
 
 /*work 워크*/
 /* .l-work{padding-bottom: 13px;} */
+
 .w-list{color: var(--level-3); height:42px; padding-left: 10px; padding-right: 10px; padding-top: 8px; border-bottom: 1px solid var(--level-3); line-height: 1.5;
 overflow: hidden; width: calc(50vw - 20px);}
 .w-list-wrapper{margin-top:0px; padding-top: 50px; width: calc(50% - 1px);}
@@ -129,10 +133,10 @@ overflow: hidden; width: calc(50vw - 20px);}
 .w-header:hover > .w-title{color: var(--lever-2); transition:0.5s;}
 .w-list-wrapper div:nth-last-child(2){border-bottom:none;}
 .w-list-wrapper div:nth-last-child(1){border-bottom:none;}
-.dummylist:hover{cursor: default;}
+
 .work-close-1{float: right; margin-right: 14px; }
 .work-close-2{float: right; margin-right: 14px; margin-top: 7px;}
-
+.dummylist:hover{cursor: default; background-color:  var(--level-1);}
 /*템플릿*/
 .l-template{width:100%; height: 100%; overflow-x:hidden; overflow-y:hidden; max-width: 50vw; border-left: 1px solid var(--level-3); padding-left: 10px}
 #l-eng-template{position: fixed; left: 50vw; top:0px;}

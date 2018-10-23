@@ -111,7 +111,6 @@ $.getJSON(spreadOfColor, function(data) {
     wrapper.style.setProperty("--level-3", colorArray[3]);
     wrapper.style.setProperty("--level-2", colorArray[2]);
     // wrapper.style.setProperty("--level-1", colorArray[1]);
-    console.log("random");
     transtionArray();
   }
 
@@ -175,6 +174,7 @@ function transitionMotion() {
   $("#wrapper").css({"transition":"background-color 10s"});
   $("#left").css({"transition":"background-color 10s"});
   $("#right").css({"transition":"background-color 10s"});
+  $(".bg").css({"transition":"background-color 10s"});
   $("header").css({"transition":"background-color 10s"});
   $(".w-wrapper").css({"transition":"background-color 10s"});
   $(".l-infomation").css({"transition":"background-color 10s"});
@@ -203,5 +203,5 @@ function drawClosebtn(obj) {
       btn_hover+= '</svg></div>'
       $(obj).append(btn_hover);
 $(obj).append(btn);
-      console.log(btn)
+
       }
