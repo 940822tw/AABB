@@ -45,13 +45,17 @@ function work(index, date, title1, desc1, desc2, title2, desc3, desc4, directory
 }
 
 function makeURL(arrayNum,formatNum){
-if(worksArray[arrayNum].format[formatNum]!=="video"){
-return"<img class='w-image' width='"+worksArray[arrayNum].size[formatNum]+"' id='w-"+arrayNum+"-image-"+formatNum+"' src='"+ "img/"+worksArray[arrayNum].directory+"/"+eval(formatNum+1)+"."+worksArray[arrayNum].format[formatNum]+"'>"
+if(worksArray[arrayNum].format[formatNum]=="text"){
+    var str = worksArray[arrayNum].size[formatNum].split("(영)");
+    str = str[1].split("(한)");
+    console.log(str)
+    return"<span class='w-desc-add' data-lang='eng'>"+str[0].substring(1)+"</span><span class='w-desc-add'   data-lang='kor'>"+str[1].substring(1)+"</span>"
+}else if(worksArray[arrayNum].format[formatNum]=="image"){
+    return"<img class='w-image' width='100%' id='w-"+arrayNum+"-image-"+formatNum+"' src='"+ "img/"+worksArray[arrayNum].directory+"/"+worksArray[arrayNum].size[formatNum]+"'>"
 }else{
-  videoLength ++;
-  curvideo=".w-video-"+arrayNum;
-  return "<div class='w-video w-video-"+arrayNum+"'>"+worksArray[arrayNum].size[formatNum];+"</div>"
-
+    videoLength ++;
+    curvideo=".w-video-"+arrayNum;
+    return "<div class='w-video w-video-"+arrayNum+"'>"+worksArray[arrayNum].size[formatNum];+"</div>"
 }
 }
 
@@ -137,7 +141,7 @@ function grid(){
   html+="<div id='g-wrapper'>"
    for (var i = 0; i < worksArray.length; i++) {
     html+="<div id='grid-"+i+"' class='g-element' onmouseover='gridColorAdd("+i+")' onmouseout='gridColorRemove("+i+")'>"
-    html+="<span class='helper'></span><img src='img/"+worksArray[i].directory+"/1."+worksArray[i].format[0]+"' onclick='toggle_work("+i+",&quot;right&quot;)'>"
+    html+="<span class='helper'></span><img src='img/"+worksArray[i].directory+"/"+worksArray[i].size[0]+"' onclick='toggle_work("+i+",&quot;right&quot;)'>"
     html+="</div>"
    }
   html+="</div>"
@@ -223,10 +227,7 @@ function toggle_work(num, direction){
       html+="'>"+worksArray[num].title2+"</span>"
       html+="<br><br>"
 
-        // if(direction=="right"){html+=worksArray[num].desc1;}
-        // if(direction=="right"){html+=worksArray[num].desc2;}
-        // if(direction=="left"){html+=worksArray[num].desc3;}
-        // if(direction=="left"){html+=worksArray[num].desc4;}
+
         html+="<span data-lang='eng' "
         if(cl=="kor"){html+="class='invis'"}
         html+=">"+worksArray[num].desc1+"</span>"
@@ -246,8 +247,6 @@ function toggle_work(num, direction){
 
       html+="</div>"
       html+="<div id='w-"+cl+"-thumbwrapper-"+num+"' class='w-thumbwrapper'>"
-        // $(".w-video").remove();
-
 
 
       for(var i=0; i<worksArray[num].format.length; i++){
@@ -310,23 +309,12 @@ function toggle_work(num, direction){
 
 
 
-
-
-
-      bg();
-      bgOpen(bgId);
-      zIndex++;
-      zI(bgwId,zIndex);
-      zIndex++;
-      zI("#w-eng-wrapper-"+num,zIndex);
-
-
-
-
-
-
-
-
+      // bg();
+      // bgOpen(bgId);
+      // zIndex++;
+      // zI(bgwId,zIndex);
+      // zIndex++;
+      // zI("#w-eng-wrapper-"+num,zIndex);
 
 
 

@@ -89,9 +89,11 @@ $.getJSON(spreadOfColor, function(data) {
     })
     colorArray[3] = SettingEntry[8].content.$t;
     colorArray[2] = SettingEntry[12].content.$t;
-    colorArray[1] = SettingEntry[16].content.$t;
+    colorArray[4] = SettingEntry[16].content.$t;
+    colorArray[1] = SettingEntry[20].content.$t;
     wrapper.style.setProperty("--level-3", colorArray[3]);
     wrapper.style.setProperty("--level-2", colorArray[2]);
+    wrapper.style.setProperty("--level-2-1", colorArray[4]);
     wrapper.style.setProperty("--level-1", colorArray[1]);
   } else
   if (colorArray[0] == "DEFAULT") {
@@ -100,14 +102,20 @@ $.getJSON(spreadOfColor, function(data) {
     })
     colorArray[3] = "#000";
     colorArray[2] = "#CCC";
+    colorArray[4] = "#CCC";
     colorArray[1] = "#FFF";
     wrapper.style.setProperty("--level-3", colorArray[3]);
+    wrapper.style.setProperty("--level-2-1", colorArray[4]);
     wrapper.style.setProperty("--level-2", colorArray[2]);
     wrapper.style.setProperty("--level-1", colorArray[1]);
   } else if (colorArray[0] == "RANDOM") {
     colorArray[3] = SettingEntry[8].content.$t;
     colorArray[2] = SettingEntry[12].content.$t;
+    colorArray[4] = SettingEntry[16].content.$t;
+
     // colorArray[1]="transparent";
+
+    wrapper.style.setProperty("--level-2-1", colorArray[4]);
     wrapper.style.setProperty("--level-3", colorArray[3]);
     wrapper.style.setProperty("--level-2", colorArray[2]);
     // wrapper.style.setProperty("--level-1", colorArray[1]);
@@ -116,7 +124,7 @@ $.getJSON(spreadOfColor, function(data) {
 
   //사이트 웨이트
 
-  weight = SettingEntry[20].content.$t;
+  weight = SettingEntry[24].content.$t;
   wrapper.style.setProperty("--weight", weight);
 
 drawClosebtn(".info-close");
