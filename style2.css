@@ -121,7 +121,7 @@ position: relative; left: calc(100vw - 60px); bottom: 3px;
 .g-element img{max-width: calc(16.6vw - 21px); max-height: 122px; display: inline-block; vertical-align: middle;}
 .g-element img:hover{cursor: pointer; transition: .4S;}
 .helper {display: inline-block; height: 100%; vertical-align: middle;}
-.w-list-selected img{visibility: hidden;}
+.w-list-selected img{opacity: 0;}
 
 /*work 워크*/
 /* .l-work{padding-bottom: 13px;} */
