@@ -468,12 +468,13 @@ function mobileToogle(num, direction){
 
 
     html += "</div>";
-if(direction=="right"){
-  var destination = "#w-eng-work-mob-"+num;
-  $(destination).append(html);}
-if(direction=="left"){
-  var destination = "#w-kor-work-mob-"+num;
-  $(destination).append(html);}
+
+// if(direction=="right"){
+//   var destination = "#w-eng-work-mob-"+num;
+//   $(destination).append(html);}
+// if(direction=="left"){
+//   var destination = "#w-kor-work-mob-"+num;
+//   $(destination).append(html);}
 
 
   mobdropdown(destinationContainer, 500);
@@ -490,29 +491,28 @@ function bg(){
   if (bgIterate==4) {bgIterate=0;}
   bgIterate++;
   console.log("#bg"+bgIterate);
-  console.log("z-Index="+zIndex);
   bgId = "#bg"+bgIterate;
   bgwId = "#bgw"+bgIterate;
 }
-
-function zI(a,b){
-
-  $(a).css({
-    "z-index": b
-  })
-}
+//
+// function zI(a,b){
+//
+//   $(a).css({
+//     "z-index": b
+//   })
+// }
 
 function bgOpen(id){
   $(id).css({
-    "left": 0
+    "padding-left": "0vw"
   })
   $(id).animate({
-    left : "50vw"
+    "padding-left": "50vw"
   }, 400);
 }
 
 function bgClose(id){
   $(id).animate({
-    left : "0vw"
+    "padding-left": "0vw"
   }, 400);
 }

@@ -100,7 +100,7 @@ position: relative; left: calc(100vw - 56px);
 .w-wrapper{position: fixed;}
 .bg-wrapper{width: 0px; overflow: visible; height: 0;}
 .bg{width: calc(50vw - 0px); overflow-y: visible; background-color: var(--level-1); position: fixed; height: 100vh; left: 0; display: inline-block;}
-.bgw{position: fixed;}
+/* .bgw{position: fixed;} */
 /* 그리드*/
 #g-wrapper {padding-top: 49px;}
 .g-element::before, #g-wrapper .g-element {vertical-align: middle;}

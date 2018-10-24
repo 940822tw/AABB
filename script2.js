@@ -213,3 +213,12 @@ function drawClosebtn(obj) {
 $(obj).append(btn);
 
       }
+
+
+
+
+function bgw(obj){
+  $(id).animate({
+    width: "100vw"
+  }, 100);
+}
