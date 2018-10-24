@@ -190,6 +190,7 @@ function transitionMotion() {
   $(".w-list-wrapper").css({"transition":"background-color 10s"});
   $(".l-header").css({"transition":"background-color 10s"});
   $(".n-col input").css({"transition":"color 1s"});
+  
   // $("html body").animate({backgroundColor: transitionBackground[transitionOrder]}, 100, 'linear');
   checkNumber();
   wrapper.style.setProperty("--level-1", transitionBackground[transitionOrder]);
