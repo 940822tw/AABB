@@ -23,6 +23,7 @@ var langChange = false;
 var bgIterate=0;
 var bgId="";
 var bgwId="";
+var curgrid="";
 function callback(cb,a) {
   cb(a);
 }
@@ -182,7 +183,7 @@ function toggle_work(num, direction){
   videoReset();
   $(curlist_1).removeClass('w-list-selected');
   $(curlist_2).removeClass('w-list-selected');
-
+  $('.w-list-selected').removeClass('w-list-selected');
 
   if(currentnum==num && currentdir==direction){
     // rightToMiddle('#right .w-wrapper');
@@ -214,9 +215,10 @@ function toggle_work(num, direction){
   curlist="#w-"+cl+"-list-"+num;
   curlist_1="#w-eng-list-"+num;
   curlist_2="#w-kor-list-"+num;
-
+  curgrid = "#grid-"+num;
   $(curlist_1).addClass('w-list-selected');
   $(curlist_2).addClass('w-list-selected');
+  $(curgrid).addClass('w-list-selected')
   //
   // invis(".w-list-arrow");
   // vis("#arr-"+cl+"-list-title-"+num);
