@@ -108,18 +108,29 @@ $.getJSON(spreadOfColor, function(data) {
     wrapper.style.setProperty("--level-2-1", colorArray[4]);
     wrapper.style.setProperty("--level-2", colorArray[2]);
     wrapper.style.setProperty("--level-1", colorArray[1]);
-  } else if (colorArray[0] == "RANDOM") {
+  } else
+  if (colorArray[0] == "RANDOM - TRANSITION") {
     colorArray[3] = SettingEntry[8].content.$t;
     colorArray[2] = SettingEntry[12].content.$t;
     colorArray[4] = SettingEntry[16].content.$t;
 
-    // colorArray[1]="transparent";
+    wrapper.style.setProperty("--level-2-1", colorArray[4]);
+    wrapper.style.setProperty("--level-3", colorArray[3]);
+    wrapper.style.setProperty("--level-2", colorArray[2]);
+
+    transtionArray();
+  } else
+  if(colorArray[0] == "RANDOM"){
+
+    colorArray[3] = SettingEntry[8].content.$t;
+    colorArray[2] = SettingEntry[12].content.$t;
+    colorArray[4] = SettingEntry[16].content.$t;
 
     wrapper.style.setProperty("--level-2-1", colorArray[4]);
     wrapper.style.setProperty("--level-3", colorArray[3]);
     wrapper.style.setProperty("--level-2", colorArray[2]);
-    // wrapper.style.setProperty("--level-1", colorArray[1]);
-    transtionArray();
+
+    blinkArray();
   }
 
   //사이트 웨이트
@@ -154,20 +165,31 @@ function transtionArray() {
     $("html body").css({
       "opacity": 1
     })
-
-  //
-  //   $("#wrapper").css({'transition' : 'background-color 10s',
-  //   'transition' : 'background-color 10s',
-  //   'transition'    : 'background-color 10s',
-  //   'transition'     : 'background-color 10s',
-  // // 'transition'        : 'background-color 10s'});
-
     wrapper.style.setProperty("--level-1", transitionBackground[transitionOrder]);
     setInterval(transitionMotion, transitionTime);
   })
 
+}
+
+function blinkArray() {
+
+  $.getJSON(spreadOfTrans, function(data) {
+    var entry = data.feed.entry;
+    transitionLength = entry[4].content.$t;
+    transitionTime = entry[3].content.$t;
+    for (var i = 0; i < transitionLength; i++) {
+      transitionBackground[i] = entry[eval(9 + 4 * i)].content.$t;
+    }
+    shuffle(transitionBackground);
+    $("html body").css({
+      "opacity": 1
+    })
+    wrapper.style.setProperty("--level-1", transitionBackground[transitionOrder]);
+    blinkMotion()
+  })
 
 }
+
 
 function checkNumber() {
   if (transitionOrder == transitionLength - 1) {
@@ -198,6 +220,13 @@ function transitionMotion() {
 
 }
 
+function blinkMotion() {
+  checkNumber();
+  wrapper.style.setProperty("--level-1", transitionBackground[transitionOrder]);
+
+}
+
+
 function drawClosebtn(obj) {
   var btn=''
       btn+= '<div class="btn-wrapper">'
@@ -225,6 +254,7 @@ function bgw(obj){
   }, 100);
 }
 
+
 function txtimg(){
   if(ti=="txt-img"){
     ti="img-txt";
@@ -251,8 +281,20 @@ function txtimg(){
     $(".g-element").css({"border-right":"none"});
     $("#btntxtimg-kor").html("IMG/TXT")
     $("#btntxtimg-eng").html("IMG/TXT")
-
-
-
   }
+}
+
+function scrolltoTop(a,b){
+  $(a).animate({
+	scrollTop: 0
+}, b);
+}
+
+function ini(){
+if(infoToggle){toggle_info()};
+if(currentnum){toggle_work(currentnum,currentdir)}
+scrolltoTop("#left",300)
+scrolltoTop("#w-eng",300)
+scrolltoTop("#right",300)
+scrolltoTop("#g-wrapper",300)
 }

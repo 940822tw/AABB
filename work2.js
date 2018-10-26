@@ -141,8 +141,8 @@ function grid(){
   var append = "#right"
   html+="<div id='g-wrapper'>"
    for (var i = 0; i < worksArray.length; i++) {
-    html+="<div id='grid-"+i+"' class='g-element' onmouseover='gridColorAdd("+i+")' onmouseout='gridColorRemove("+i+")'>"
-    html+="<span class='helper'></span><img src='img/"+worksArray[i].directory+"/"+worksArray[i].size[0]+"' onclick='toggle_work("+i+",&quot;right&quot;)'>"
+    html+="<div id='grid-"+i+"' class='g-element' onmouseover='gridColorAdd("+i+")' onmouseout='gridColorRemove("+i+")'  onclick='toggle_work("+i+",&quot;right&quot;)'>"
+    html+="<span class='helper'></span><img src='img/"+worksArray[i].directory+"/"+worksArray[i].size[0]+"'>"
     html+="</div>"
    }
   html+="</div>"
@@ -152,7 +152,7 @@ function grid(){
       for (var i = 0; i < 3-worksArray.length%3; i++) {
         var html=""
         var append = "#g-wrapper"
-        html+="<div id='grid-dummy-"+i+"' class='g-element'>"
+        html+="<div id='grid-dummy-"+i+"' class='g-element g-dummy'>"
             html+="<span class='helper'></span><img src='img/"+worksArray[i].directory+"/1."+worksArray[i].format[0]+"' style='visibility:hidden'>"
         html+="</div>"
         }
@@ -196,7 +196,7 @@ function toggle_work(num, direction){
   // if(direction == "left"){leftToMiddle('#left .w-wrapper');  currentdir =null; currentnum =null; curlist=null;
   // setTimeout(function(){$('#left .w-wrapper').remove();invis('#left  .l-template')},330)}
   // invis(".w-list-arrow");
-  zIndex=0;
+  zIndex=1;
 
  if(num==mobcurrentnum && direction==mobcurrentdir){
  mobcurrentnum=null; mobcurrentdir=null;
@@ -218,7 +218,7 @@ function toggle_work(num, direction){
   curgrid = "#grid-"+num;
   $(curlist_1).addClass('w-list-selected');
   $(curlist_2).addClass('w-list-selected');
-  $(curgrid).addClass('w-list-selected')
+  $(curgrid).addClass('w-list-selected');
   //
   // invis(".w-list-arrow");
   // vis("#arr-"+cl+"-list-title-"+num);
